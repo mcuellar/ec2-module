@@ -146,5 +146,10 @@ resource "aws_instance" "this" {
 
   lifecycle {
     create_before_destroy = false
+
+    precondition {
+      condition     = var.create_security_group || var.security_group_ids != null
+      error_message = "Either create_security_group must be true or security_group_ids must be provided."
+    }
   }
 }
