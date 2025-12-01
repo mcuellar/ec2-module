@@ -21,8 +21,8 @@ variable "instance_type" {
   default     = "t2.micro"
 
   validation {
-    condition     = can(regex("^[a-z][0-9][a-z]?\\.", var.instance_type))
-    error_message = "The instance_type must be a valid EC2 instance type (e.g., t2.micro, t3.small)."
+    condition     = can(regex("^[a-z][0-9]+[a-z]*\\.[a-z0-9]+$", var.instance_type))
+    error_message = "The instance_type must be a valid EC2 instance type (e.g., t2.micro, t3.small, m5.large)."
   }
 }
 
