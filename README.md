@@ -160,9 +160,33 @@ The `examples/` directory contains sample implementations:
 - Consider using existing security groups by setting `create_security_group = false` and providing `security_group_ids`.
 - Use key pairs for SSH access by setting the `key_name` variable.
 
-## License
+
+## Versioning & Auto-Tagging
+
+This repository uses an automated GitHub Actions workflow to tag releases following [Semantic Versioning](https://semver.org/) (`vMAJOR.MINOR.PATCH`) after each push to `main` or when a pull request is created against `main`.
+
+### Commit Message Conventions
+
+The next version is determined by your commit message:
+
+- **MAJOR** version bump: If your commit message contains `major`, the version will increment the MAJOR number (e.g., `v2.0.0`). Use this for incompatible API changes.
+- **MINOR** version bump: If your commit message contains `feat`, the version will increment the MINOR number (e.g., `v1.1.0`). Use this for backward-compatible new features.
+- **PATCH** version bump: For all other commit messages, the PATCH number is incremented (e.g., `v1.0.1`). Use this for backward-compatible bug fixes.
+
+**Examples:**
+
+- `major: remove deprecated input variables`
+- `feat: add support for t3.micro instances`
+- `fix: correct AMI lookup for Red Hat`
+
+The first tag will be `v1.0.0` if no previous tags exist.
+
+Tags are automatically pushed to the repository.
+
+---
 
 This module is provided as-is for use in your Terraform projects.
+
 
 ## Author
 
